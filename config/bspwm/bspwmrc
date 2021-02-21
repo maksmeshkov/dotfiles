@@ -1,0 +1,34 @@
+#! /bin/sh
+
+bspc monitor -d 主要 付帯 備蓄 セブン  #Dev Dev Browse Browse Game Game Net Net Misc
+bspc config border_width         3
+bspc config window_gap          15
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      false
+bspc config focused_border_color \#ff79c6
+bspc config normal_border_color \#6272a4
+bspc config border_radius 10
+bspc config pointer_modifier mod4
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+bspc config automatic_scheme spiral
+bspc rule -a Gimp desktop='^4' state=floating follow=on
+
+# Autostart copied from my i3 config
+
+killall sxhkd &
+sxhkd  &
+# .local/bin/wal -R  &
+unclutter -grab -idle 3  &
+bash /home/overaid/.screenlayout/first.sh  &
+setxkbmap -layout us,ru -option grp:alt_space_toggle -option caps:escape  &
+/home/overaid/usr/launch-compton.sh  &
+/home/nekohacker/.config/polybar/launch.sh &
+xset r rate 380 35  &
+redshift -b 1:0.9 -t 6500:5500 -c ~/.config/redshift.conf  &
+feh --bg-fill /home/nekohacker/Downloads/gentoo_dracula_natasha.png &
+xcape -e 'Shift_L=parenleft;Shift_R=parenright'  &
+xsetwacom set "Wacom One by Wacom M Pen stylus" MapToOutput HEAD-0   &
+
